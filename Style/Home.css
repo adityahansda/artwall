@@ -266,24 +266,23 @@
                   
                   .popup-wrapper {
                       font-family: 'Roboto', sans-serif;
-                      display: flex;
                       justify-content: center;
                       align-items: center;
                       position: fixed;
-                      top: 0;
-                      left: 0;
                       width: 100%;
                       height: 100%;
                       background: rgba(0, 0, 0, 0.7);
-                      z-index: 999;
                       display: none;
+                      border-radius: 20px;
                   }
                   
                   .popup-content {
+                      border-radius: 20px;
+                      display: flex;
+                      flex-direction: column;
                       color: antiquewhite;
                       background-color: rgb(0, 0, 0);
                       padding: 20px;
-                      border-radius: 5px;
                       text-align: center;
                       box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
                   }
@@ -295,4 +294,8 @@
                   #loading_img {
                       height: 80px;
                       width: 150px;
+                  }
+                  
+                  .popup-content span {
+                      margin-top: 20px;
                   }
