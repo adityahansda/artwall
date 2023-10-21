@@ -291,3 +291,8 @@
                   .popup-wrapper.show {
                       display: flex;
                   }
+                  
+                  #loading_img {
+                      height: 80px;
+                      width: 150px;
+                  }
