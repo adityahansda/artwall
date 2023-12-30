@@ -258,6 +258,13 @@
          .image:hover .download-icon {
              display: block;
          }
+         .line {
+             display: none;
+         }
+     }
+     
+     .catalog-section h2 {
+         margin-left: 10px;
      }
      
      .image-grid {
