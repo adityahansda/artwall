@@ -12,6 +12,7 @@
     <script src='https://code.jquery.com/jquery-1.8.2.js'></script>
     <script src="Script/popup.js"></script>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.11.2/cloudinary-core-shrinkwrap.js"></script>
 
 </head>
 
@@ -26,16 +27,18 @@
         </div>
 
         <div class="search_box">
-            <input type="text" placeholder="Search Wallpaper">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
               </svg>
+            <input type="text" placeholder="Search Wallpaper">
+
         </div>
 
         <div class="menu_box">
-            <span><a>Explore</a></span>
-            <span><a>licence</a></span>
-            <span><a>Upload</a></span>
+            <span><a id="home">Home</a></span>
+            <span><a id="Explore">Explore</a></span>
+            <span><a id="licence">licence</a></span>
+            <span><a id="Upload">Upload</a></span>
 
         </div>
 
@@ -47,6 +50,75 @@
 
     <div class="line"></div>
 
+
+    <div class="image-grid" id="imageGrid">
+        <!-- Images will be dynamically added here -->
+    </div>
+
+
+
+
 </body>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const imageGrid = document.getElementById('imageGrid');
+
+        // Sample image URLs
+        const imageUrls = [
+            'https://i.pinimg.com/originals/bd/c3/c0/bdc3c0ee78014ca38316bb618da0e3a1.gif',
+            'https://i.pinimg.com/564x/78/c0/9f/78c09fb6dd903a51e053a2e6203ac3b4.jpg',
+            'https://i.pinimg.com/564x/3e/2d/49/3e2d49f9b912eda36bc0c688bc13601c.jpg',
+            'https://i.pinimg.com/originals/bd/c3/c0/bdc3c0ee78014ca38316bb618da0e3a1.gif',
+            'https://i.pinimg.com/564x/78/c0/9f/78c09fb6dd903a51e053a2e6203ac3b4.jpg',
+            'https://i.pinimg.com/originals/bf/d4/82/bfd482106dbd4bba2068a1173a6f25b3.gif',
+            // Add more image URLs as needed
+        ];
+
+        // Dynamically create image elements
+        imageUrls.forEach(function(imageUrl) {
+            const imageContainer = document.createElement('div');
+            imageContainer.className = 'image';
+
+            const imageElement = document.createElement('img');
+            imageElement.src = imageUrl;
+
+            const downloadIcon = document.createElement('a');
+            downloadIcon.href = imageUrl;
+            downloadIcon.download = 'image.jpg';
+            downloadIcon.className = 'download-icon';
+
+            // Creating and appending the SVG icon
+            const svgIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            svgIcon.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+            svgIcon.setAttribute("width", "16");
+            svgIcon.setAttribute("height", "16");
+            svgIcon.setAttribute("fill", "currentColor");
+            svgIcon.setAttribute("class", "bi bi-download");
+            svgIcon.setAttribute("viewBox", "0 0 16 16");
+
+            const path1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            path1.setAttribute("d", "M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5");
+            svgIcon.appendChild(path1);
+
+            const path2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            path2.setAttribute("d", "M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z");
+            svgIcon.appendChild(path2);
+
+            // Append the SVG icon to the download icon
+            downloadIcon.appendChild(svgIcon);
+
+            // Append the image and download icon to the container
+            imageContainer.appendChild(imageElement);
+            imageContainer.appendChild(downloadIcon);
+
+            // You can add click or hover events to the images if needed
+
+            // Append the container to the image grid
+            imageGrid.appendChild(imageContainer);
+        });
+    });
+</script>
 
 </html>
