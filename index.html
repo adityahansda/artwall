@@ -11,31 +11,46 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <script src='https://code.jquery.com/jquery-1.8.2.js'></script>
     <script src="Script/popup.js"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 
 </head>
 
 <body>
 
     <div class="nav">
-        <img class="menu_icon" src="images/menu.png">
 
         <div class="logo">
-            <img src="images/logo.png" alt="">
+            <img class="menu_icon" src="images/menu_black.png">
+
+            <img src="images/logo_white.png" alt="">
+
             <span class="logo_txt">ArtWall</span>
 
 
             <ul>
-                <li><a>Home</a></li>
-                <li><a>Explore</a></li>
-                <li><a>upload</a></li>
+                <li><a href="home">Home</a></li>
+                <li><a href="explore">Explore</a></li>
+                <li><a href="upload">upload</a></li>
             </ul>
 
         </div>
 
+        <div class="search">
+
+            <input id="search_input" type="text" placeholder="search">
+
+        </div>
+
         <img class="profile_icon" src="images/profile.png" alt="">
+
     </div>
 
 
+
+    <div class="continer">
+        <dotlottie-player src="https://lottie.host/5d9ecd27-9a10-41fe-a3b3-8a85bbb94069/kDEDKKri4u.json" background="transparent" speed="0.5" style="width: 300px; height: 500px;" loop autoplay></dotlottie-player>
+        <span>Loading...</span>
+    </div>
 
 </body>
 
