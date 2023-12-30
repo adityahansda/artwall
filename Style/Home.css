@@ -189,3 +189,122 @@
      .image:hover .download-icon {
          display: block;
      }
+     /* Mobile responsiveness */
+     
+     @media only screen and (max-width: 600px) {
+         .nevbar {
+             flex-direction: column;
+             align-items: center;
+         }
+         .logo {
+             margin-bottom: 10px;
+             margin-right: 0;
+         }
+         .search_box {
+             width: 100%;
+             margin-bottom: 10px;
+         }
+         .nevbar .logo img {
+             height: 30px;
+             width: 60px;
+         }
+         .nevbar .logo span {
+             font-size: 24px;
+         }
+         .search_box input {
+             font-size: 16px;
+         }
+         .menu_box {
+             width: 100%;
+             justify-content: center;
+             margin-bottom: 10px;
+         }
+         .menu_box span {
+             padding: 10px;
+             margin-right: 10px;
+         }
+         .nevbar .Home_profile img {
+             display: inline-block;
+         }
+         .line {
+             margin: 10px 0;
+         }
+         .image-grid {
+             display: flex;
+             flex-wrap: wrap;
+             justify-content: space-between;
+             margin: 8px;
+         }
+         .image {
+             width: 48%;
+             /* Adjust as needed */
+             margin-bottom: 8px;
+         }
+         .download-icon {
+             bottom: 5px;
+             right: 5px;
+             padding: 5px;
+         }
+     }
+     /*------------------Nav-----------------------*/
+     
+     @media only screen and (max-width: 600px) {
+         .nevbar {
+             flex-direction: column;
+             align-items: center;
+         }
+         .logo {
+             margin-bottom: 10px;
+             margin-right: 0;
+         }
+         .search_box {
+             width: 90%;
+             margin-bottom: 10px;
+         }
+         .nevbar .logo img {
+             height: 30px;
+             width: 60px;
+         }
+         .nevbar .logo span {
+             font-size: 24px;
+         }
+         .search_box input {
+             font-size: 16px;
+         }
+         .menu_box {
+             display: none;
+             width: 100%;
+             justify-content: center;
+             margin-bottom: 10px;
+         }
+         .menu_box span {
+             padding: 8px;
+             margin: 0 5px;
+         }
+         .nevbar .Home_profile img {
+             display: inline-block;
+             margin-top: 10px;
+         }
+         .line {
+             margin: 10px 0;
+         }
+         .image-grid {
+             column-count: 2;
+             column-gap: 8px;
+             margin: 8px;
+         }
+         .image {
+             margin-bottom: 8px;
+         }
+         .download-icon {
+             bottom: 5px;
+             right: 5px;
+             padding: 5px;
+         }
+         .Home_profile {
+             display: none;
+         }
+         .button-5 {
+             display: none;
+         }
+     }
