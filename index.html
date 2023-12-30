@@ -26,6 +26,8 @@
 
         </div>
 
+
+
         <div class="search_box">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
@@ -49,7 +51,15 @@
     </div>
 
     <div class="line"></div>
-
+    <div class="catalog-section">
+        <h2>Category</h2>
+        <div class="catalog-buttons">
+            <button class="catalog-button" onclick="filterImages('all')">All</button>
+            <button class="catalog-button" onclick="filterImages('Anime')">Anime</button>
+            <button class="catalog-button" onclick="filterImages('abstract')">Abstract</button>
+            <!-- Add more categories as needed -->
+        </div>
+    </div>
 
     <div class="image-grid" id="imageGrid">
         <!-- Images will be dynamically added here -->
@@ -65,21 +75,54 @@
     document.addEventListener('DOMContentLoaded', function() {
         const imageGrid = document.getElementById('imageGrid');
 
-        // Sample image URLs
-        const imageUrls = [
-            'https://i.pinimg.com/originals/bd/c3/c0/bdc3c0ee78014ca38316bb618da0e3a1.gif',
-            'https://i.pinimg.com/564x/78/c0/9f/78c09fb6dd903a51e053a2e6203ac3b4.jpg',
-            'https://i.pinimg.com/564x/3e/2d/49/3e2d49f9b912eda36bc0c688bc13601c.jpg',
-            'https://i.pinimg.com/originals/bd/c3/c0/bdc3c0ee78014ca38316bb618da0e3a1.gif',
-            'https://i.pinimg.com/564x/78/c0/9f/78c09fb6dd903a51e053a2e6203ac3b4.jpg',
-            'https://i.pinimg.com/originals/bf/d4/82/bfd482106dbd4bba2068a1173a6f25b3.gif',
-            // Add more image URLs as needed
+        const imageUrls = [{
+                url: 'https://i.pinimg.com/564x/e9/f4/9a/e9f49a7af3620e200834169cbf276444.jpg',
+                category: 'Anime',
+            }, {
+                url: 'https://i.pinimg.com/564x/c3/46/af/c346af5c0220cab8dabfc6e38d43d282.jpg',
+                category: 'Anime',
+            }, {
+                url: 'https://i.pinimg.com/564x/86/cb/ce/86cbce545db0ae6123ca37358e06bf0f.jpg',
+                category: 'Anime',
+            }, {
+                url: 'https://i.pinimg.com/564x/d8/6c/9a/d86c9af2c2e3838709fc2b5897bddf9c.jpg',
+                category: 'Anime',
+            }, {
+                url: 'https://i.pinimg.com/736x/44/3d/1c/443d1cf62d190431a494f6f7959c151b.jpg',
+                category: 'Anime',
+            }, {
+                url: 'https://i.pinimg.com/564x/e7/06/c9/e706c9cac050665b033f9a352b0c969a.jpg',
+                category: 'Anime',
+            },
+
+            {
+                url: 'https://i.pinimg.com/564x/78/c0/9f/78c09fb6dd903a51e053a2e6203ac3b4.jpg',
+                category: 'abstract',
+            }, {
+                url: 'https://i.pinimg.com/564x/78/c0/9f/78c09fb6dd903a51e053a2e6203ac3b4.jpg',
+                category: 'abstract',
+            },
+            // Add more image URLs with categories as needed
         ];
 
-        // Dynamically create image elements
-        imageUrls.forEach(function(imageUrl) {
+        window.filterImages = function(category) {
+            const imageContainers = document.querySelectorAll('.image');
+
+            imageContainers.forEach(container => {
+                const imageCategory = container.getAttribute('data-category');
+
+                if (category === 'all' || category === imageCategory) {
+                    container.style.display = 'block';
+                } else {
+                    container.style.display = 'none';
+                }
+            });
+        };
+
+        function createImageElement(imageUrl, category) {
             const imageContainer = document.createElement('div');
             imageContainer.className = 'image';
+            imageContainer.setAttribute('data-category', category);
 
             const imageElement = document.createElement('img');
             imageElement.src = imageUrl;
@@ -89,7 +132,6 @@
             downloadIcon.download = 'image.jpg';
             downloadIcon.className = 'download-icon';
 
-            // Creating and appending the SVG icon
             const svgIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
             svgIcon.setAttribute("xmlns", "http://www.w3.org/2000/svg");
             svgIcon.setAttribute("width", "16");
@@ -106,17 +148,19 @@
             path2.setAttribute("d", "M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z");
             svgIcon.appendChild(path2);
 
-            // Append the SVG icon to the download icon
             downloadIcon.appendChild(svgIcon);
-
-            // Append the image and download icon to the container
             imageContainer.appendChild(imageElement);
             imageContainer.appendChild(downloadIcon);
 
-            // You can add click or hover events to the images if needed
+            return imageContainer;
+        }
 
-            // Append the container to the image grid
-            imageGrid.appendChild(imageContainer);
+        imageUrls.forEach(({
+            url,
+            category
+        }) => {
+            const imageElement = createImageElement(url, category);
+            imageGrid.appendChild(imageElement);
         });
     });
 </script>

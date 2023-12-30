@@ -245,6 +245,40 @@
              right: 5px;
              padding: 5px;
          }
+         .download-icon {
+             position: absolute;
+             bottom: 5px;
+             right: 5px;
+             padding: 5px;
+             background-color: #FAB515;
+             /* Adjust background color as needed */
+             border-radius: 50%;
+             display: none;
+         }
+         .image:hover .download-icon {
+             display: block;
+         }
+     }
+     
+     .image-grid {
+         column-count: 4;
+         column-gap: 16px;
+         margin: 16px;
+     }
+     
+     .image {
+         margin-bottom: 16px;
+         border-radius: 8px;
+         overflow: hidden;
+         position: relative;
+         width: 100%;
+         /* Adjust as needed */
+     }
+     
+     .image img {
+         width: 100%;
+         height: auto;
+         display: block;
      }
      /*------------------Nav-----------------------*/
      
@@ -307,4 +341,35 @@
          .button-5 {
              display: none;
          }
+     }
+     
+     .catalog-section {
+         margin: 20px 0;
+         padding-left: 10px;
+     }
+     
+     .catalog-buttons {
+         display: flex;
+         margin-top: 10px;
+     }
+     
+     .catalog-button {
+         background-color: #FAB515;
+         /* Catalog button color */
+         color: #fff;
+         /* Text color on catalog button */
+         padding: 8px 16px;
+         margin: 0 10px;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+         font-size: 16px;
+         /* Adjust font size */
+         transition: background-color 0.3s ease;
+         /* Smooth transition on hover */
+     }
+     
+     .catalog-button:hover {
+         background-color: #000000;
+         /* Change color on hover */
      }
